@@ -9,7 +9,32 @@ body {
 div#info {
   margin-bottom: 140px;
 }
+button.searchBtn {
+  height: 7vh;
+}
+input#searchInput {
+  height: 7vh;
+}
 @media screen and (max-width: 600px) {
+  button.searchBtn {
+    height: 5vh;
+  }
+  input#searchInput {
+    height: 5vh;
+  }
+  .deleteBtn {
+    position: relative;
+    right: -35%;
+    top: 2%;
+    font-size: 18px;
+    font-weight: bolder;
+    border: 0px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #ffffff63;
+    box-shadow: 0 0 6px black;
+  }
   .footer {
     display: flex;
     justify-content: space-around;
@@ -107,6 +132,19 @@ div#info {
 }
 
 @media screen and (max-width: 1200px) and (min-width: 601px) {
+  .deleteBtn {
+    position: relative;
+    right: -35%;
+    top: 2%;
+    font-size: 18px;
+    font-weight: bolder;
+    border: 0px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #ffffff63;
+    box-shadow: 0 0 6px black;
+  }
   .footer {
     display: flex;
     justify-content: space-around;
@@ -301,5 +339,18 @@ div#info {
     height: 7vh;
     font-weight: bolder;
     text-align: center;
+  }
+  .deleteBtn {
+    position: relative;
+    right: -35%;
+    top: 2%;
+    font-size: 18px;
+    font-weight: bolder;
+    border: 0px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #ffffff63;
+    box-shadow: 0 0 6px black;
   }
 }

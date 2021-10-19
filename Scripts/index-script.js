@@ -6,12 +6,12 @@ localStorage.setItem("allCities", JSON.stringify(allCities));
 fetchWeather();
 function fetchWeather() {
   let allCities = JSON.parse(localStorage.getItem("allCities"));
-  console.log(allCities);
+  // console.log(allCities);
   let i = 0;
   document.getElementById("slider").innerHTML = "";
   document.getElementById("allweathers").innerHTML = "";
   allCities.forEach((cityName) => {
-    console.log(cityName);
+    // console.log(cityName);
     fetch(
       "https://api.openweathermap.org/data/2.5/weather?q=" +
         cityName +
@@ -58,6 +58,7 @@ function display(data, active) {
   // console.log(active);
   allweathers.innerHTML += `
   <div class="cardWeather">
+  <button class="deleteBtn" name=${city}> ✖ </button>
   <h1 class="city">
        ${city} ,${country}
      </h1>
@@ -94,6 +95,7 @@ function display(data, active) {
        </div>`;
   slider.innerHTML += `
           <div class="carousel-item ${active}">
+          <button class="deleteBtn" name=${city} > ✖ </button>
    <h1 class="city">
        ${city} ,${country}
      </h1>
@@ -131,6 +133,21 @@ function display(data, active) {
        </div>
        
   `;
+  let deleteBtns = document.getElementsByClassName("deleteBtn");
+  // console.log(deleteBtns);
+  for (let i = 0; i < deleteBtns.length; i++) {
+    // console.log(deleteBtns[i]);
+    deleteBtns[i].addEventListener("click", function () {
+      console.log(deleteBtns[i].name);
+      let allCities = JSON.parse(localStorage.getItem("allCities"));
+      let index = allCities.indexOf(deleteBtns[i].name.toLowerCase());
+      allCities.splice(index, 1);
+      console.log(allCities);
+      localStorage.clear();
+      localStorage.setItem("allCities", JSON.stringify(allCities));
+      fetchWeather();
+    });
+  }
 }
 function darkMode() {
   // console.log(document.getElementById("info").style.color == "white");
@@ -159,8 +176,11 @@ function add() {
   let searchInput = document.getElementById("searchInput").value;
   // console.log(searchInput);
   let allCities = JSON.parse(localStorage.getItem("allCities"));
-  if (allCities.indexOf(searchInput) != -1) alert("it's already added before");
-  allCities.unshift(searchInput);
+  if (allCities.indexOf(searchInput.toLowerCase()) != -1) {
+    alert("it's already added before");
+    return;
+  }
+  allCities.unshift(searchInput.toLowerCase());
   localStorage.setItem("allCities", JSON.stringify(allCities));
   fetchWeather();
 }
