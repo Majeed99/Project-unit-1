@@ -34,6 +34,8 @@ input#searchInput {
     border-radius: 50px;
     background-color: #ffffff63;
     box-shadow: 0 0 6px black;
+    padding: 0;
+    text-align: center;
   }
   .footer {
     display: flex;
