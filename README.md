@@ -3,7 +3,7 @@
 Hello everyone 
 - This repo for my first project in Tuwaiq academy whitch is an website that display the current weather of cities.
 
-## functionalities in the website:
+## Functionalities in the website:
 - Add new city to see its weather info.
 - Remove any city you don't want to see its weather info.
 - Dark & Light mode.
